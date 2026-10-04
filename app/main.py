@@ -30,7 +30,7 @@ async def handle_app_error(request: Request, exc: Exception):
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    os.makedirs(get_settings().upload_dir, exist_ok=True)  # заодно создаст ./data
+    os.makedirs(get_settings().upload_dir, exist_ok=True)
     Base.metadata.create_all(get_engine())
     yield
 
